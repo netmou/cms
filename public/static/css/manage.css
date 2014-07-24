@@ -1,0 +1,148 @@
+/*
+    Created on : 2014-3-28, 22:35:16
+    Author     : mou
+*/
+html,body{
+    height:100%;
+    width:100%;
+    min-width:1200px;
+    min-height:900px;
+    overflow:auto;
+}
+#header{
+    height:60px;
+    background:#2F97B4;
+}
+#logo{
+    margin-top:15px;
+    margin-left:15px;
+    font-size:30px;
+    font-family:Monospace Sans-serif serif;
+    color:#333;
+}
+#login{
+    margin-top:20px;
+    margin-right:25px;
+    font-size:18px;
+    color:#eee;
+}
+#content{
+    height:calc(100% - 60px);
+}
+#sidebar{
+    width: 220px;
+    height:100%;
+    color:#ddd;
+    background:#2E3740;
+    overflow:hidden;
+}
+#userinfo{
+    height:80px;
+    padding-left:20px;
+    line-height:79px;
+    text-align:left;
+    border-top:#37414B 1px solid;
+    border-bottom:#1F262C 1px solid;
+}
+#sidebar dl{
+    color:#ddd;
+    margin:0px;
+    font-size:14px;
+}
+#sidebar dt{
+    margin:0px;
+    height:40px;
+    cursor:pointer;
+    padding-left:35px;
+    line-height:40px;
+    background:url(../images/menu_bg.png);
+    border-top:#37414B 1px solid;
+    border-bottom:#1F262C 1px solid;
+}
+#sidebar dd{
+    margin:0px;
+    line-height:30px;
+    background:#1D242C;
+    border-top:#1F262C 1px solid;
+}
+#sidebar dd li{
+    height:30px;
+    font-size:12px;
+    line-height:30px;
+    padding-left:35px;
+}
+#sidebar dl a{
+    color:#ccc;
+}
+.select{
+    background:#27A9E3;
+}
+#main{
+    background-color:#F5F5F5;
+    border-top:1px solid #000;
+    border-left:#37414B 1px solid;
+    width:calc(100% - 221px);
+    overflow:hidden;
+    height:100%;
+}
+#tabs{
+    height:38px;
+    color:#888;
+    background:#E2E2E2;
+    line-height:38px;
+    font-size:18px;
+    font-weight:bold;
+    text-shadow: 1px 1px 1px #000;
+    border-top: 1px solid #F5F5F5;
+    border-bottom:1px solid #C1C1C1;
+}
+.sheet{
+    width:calc(100% - 40px);
+    margin:20px auto;
+}
+.sheet .cpt{
+    height:38px;
+    color:#333;
+    line-height:38px;
+    font-size:18px;
+    padding:0px 10px;
+    border:1px solid #ddd;
+    border-bottom:none;
+    background:url(../images/bar.png) repeat-x 0 0;
+}
+.sheet table{
+    width:100%;
+    background:#fff;
+    border:1px solid #ddd;
+}
+.sheet th{
+    height:35px;
+    padding:0px 10px;
+    line-height:35px;
+    font-size:14px;
+    background:#efefef;
+    color:#444;
+}
+.sheet td{
+    height:35px;
+    padding:0px 10px;
+    line-height:35px;
+    font-size:14px;
+    color:#666;
+}
+.sheet td.operate{
+    height:60px;
+    line-height:60px;
+    background:#f7f7f7;
+    font-size:14px;
+}
+.sheet .btn{
+    line-height:1.2;
+    font-size:12px;
+}
+.sheet .view{
+    width:calc(100% - 12px);
+    background:#fff;
+    border:1px solid #ddd;
+    padding:5px;
+}
