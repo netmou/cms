@@ -15,4 +15,6 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });*/
-Route::get('/manage', 'ManageController@server');
+Route::get('/', 'ManageController@server');
+Route::get('/manage/index', 'ManageController@index');
+Route::get('/manage/info', 'ManageController@info');

@@ -2,12 +2,9 @@
     Created on : 2014-3-28, 22:35:16
     Author     : mou
 */
-html,body{
-    height:100%;
-    width:100%;
-    min-width:1200px;
-    min-height:900px;
-    overflow:auto;
+html{
+    min-width:1000px;
+    min-height:800px;
 }
 #header{
     height:60px;
@@ -28,6 +25,7 @@ html,body{
 }
 #content{
     height:calc(100% - 60px);
+    overflow: hidden;
 }
 #sidebar{
     width: 220px;
@@ -67,82 +65,24 @@ html,body{
 }
 #sidebar dd li{
     height:30px;
+}
+#sidebar dl a{
     font-size:12px;
     line-height:30px;
     padding-left:35px;
-}
-#sidebar dl a{
+    width:185px;
+    display:inline-block;
     color:#ccc;
 }
-.select{
+#sidebar dl .select{
     background:#27A9E3;
 }
 #main{
-    background-color:#F5F5F5;
+    border:none;
     border-top:1px solid #000;
     border-left:#37414B 1px solid;
     width:calc(100% - 221px);
     overflow:hidden;
-    height:100%;
-}
-#tabs{
-    height:38px;
-    color:#888;
-    background:#E2E2E2;
-    line-height:38px;
-    font-size:18px;
-    font-weight:bold;
-    text-shadow: 1px 1px 1px #000;
-    border-top: 1px solid #F5F5F5;
-    border-bottom:1px solid #C1C1C1;
-}
-.sheet{
-    width:calc(100% - 40px);
-    margin:20px auto;
-}
-.sheet .cpt{
-    height:38px;
-    color:#333;
-    line-height:38px;
-    font-size:18px;
-    padding:0px 10px;
-    border:1px solid #ddd;
-    border-bottom:none;
-    background:url(../images/bar.png) repeat-x 0 0;
-}
-.sheet table{
-    width:100%;
-    background:#fff;
-    border:1px solid #ddd;
-}
-.sheet th{
-    height:35px;
-    padding:0px 10px;
-    line-height:35px;
-    font-size:14px;
-    background:#efefef;
-    color:#444;
-}
-.sheet td{
-    height:35px;
-    padding:0px 10px;
-    line-height:35px;
-    font-size:14px;
-    color:#666;
-}
-.sheet td.operate{
-    height:60px;
-    line-height:60px;
-    background:#f7f7f7;
-    font-size:14px;
-}
-.sheet .btn{
-    line-height:1.2;
-    font-size:12px;
-}
-.sheet .view{
-    width:calc(100% - 12px);
-    background:#fff;
-    border:1px solid #ddd;
-    padding:5px;
+    padding:0px;
+    height:calc(100% - 1px);
 }

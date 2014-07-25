@@ -1,72 +1,96 @@
-@extends('layout')
-@section('main')
-<div id="tabs">
-    <ul class="list">
-        <li>添加订单</li>
-        <li>订单列表</li>
-    </ul>
-</div>
-<div id="tabview">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>后台首页</title>
+        <meta charset="UTF-8">
+        {{HTML::style('static/css/common.css')}}
+        {{HTML::style('static/css/manage.css')}}
+        {{HTML::script('static/js/jquery-1.11.0.min.js')}}
+    </head>
+    <body>
+        <div id="header" class=" clr">
+            <div id="logo" class="lft">
+                管理系统后台
+            </div>
+            <div id="login" class='rgt'>
+                <span class=mid> 2014/07/04 08:00 星期四</span>
+                <img class="mid" src="{{asset('static/images/user2.png')}}"> <span class="mid">Admin</span>
+                <img class="mid" src="{{asset('static/images/power.png')}}"> <span class="mid">退出</span>
+            </div>
+        </div><!--end header-->
+        <div id="content" class="clr">
+            <div id="sidebar" class="lft clr">
+                <div id="userinfo">
+                    <img class="mid" src="{{asset('static/images/user.png')}}">
+                    <div class="inb">管理员</div>
+                </div>
+                <dl>
+                    <dt>基本信息设置</dt>
+                    <dd>
+                        <ul>
+                            <li class="select"><a href="{{asset('manage/index')}}" target="main_frame">渠道数据分析</a></li>
+                            <li><a href="{{asset('manage/info')}}" target="main_frame">服务器信息</a></li>
+                            <li><a href="#">渠道数据分析</a></li>
+                            <li><a href="#">客户统计分析</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>客户数据分析</dt>
+                    <dd class=hide>
+                        <ul>
+                            <li><a href="#">渠道数据分析</a></li>
+                            <li><a href="#">客户统计分析</a></li>
+                            <li><a href="#">渠道数据分析</a></li>
+                            <li><a href="#">客户统计分析</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>客户数据分析</dt>
+                    <dd class='hide'>
+                        <ul>
+                            <li><a href="#">渠道数据分析</a></li>
+                            <li><a href="#">客户统计分析</a></li>
+                            <li><a href="#">渠道数据分析</a></li>
+                            <li><a href="#">客户统计分析</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div><!--end sidebar-->
+            <iframe id="main" name="main_frame" class="rgt clr" src="{{asset('manage/index')}}"></iframe><!--end main-->
+        </div><!--end content-->
+        <script>
+            $(function(){
+                //表格奇偶行变色
+                $("table tr:odd").addClass("odd");
+                $("table tr:even").addClass("even")
 
-    <div class="sheet">
-        <div class="cpt">订单表</div>
-        <table>
-            <tr>
-                <th>订单号</th>
-                <th>单价</th>
-                <th>日期</th>
-                <th>数目</th>
-                <th>金额</th>
-                <th>状态</th>
-            </tr>
-            <tr>
-                <td>1212110833</td>
-                <td>$25.2</td>
-                <td>1990/01/07</td>
-                <td>500,000</td>
-                <td>$1，010，000</td>
-                <td>入库</td>
-            </tr>
-            <tr>
-                <td>1212110833</td>
-                <td>$25.2</td>
-                <td>1990/01/07</td>
-                <td>500,000</td>
-                <td>$1，010，000</td>
-                <td>入库</td>
-            </tr>
-            <tr>
-                <td>1212110833</td>
-                <td>$25.2</td>
-                <td>2014/10/31</td>
-                <td>600,000</td>
-                <td>$1，512，000</td>
-                <td>入库</td>
-            </tr>
-            <tr>
-                <td colspan="6" class="operate">
-                    <div class="inb lft">
-                        全选 批量 删除
-                    </div>
-                    <div class="inb rgt">
-                        <a href="#" class='btn'>首页</a>
-                        <a href="#" class='btn'>上一页</a>
-                        <a href="#" class='btn'>2</a>
-                        <a href="#" class='btn'>3</a>
-                        <a href="#" class='btn'>4</a>
-                        <a href="#" class='btn'>下一页</a>
-                        <a href="#" class='btn'>尾页</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="sheet">
-        <div class="view">
-
-        </div>
-
-    </div>
-    </div>
-</div>
-@stop
+        	    //手拉琴菜单
+            	var lastIndex=0;
+                var lastStatus=true;
+            	$('#sidebar dl dt').click(function(){
+            		var _self = $(this).parent(0);
+            		var index = $('#sidebar dl').index(_self);
+            		if( lastIndex === index ) {
+                        if(lastStatus){
+                            $(_self).find('dd').slideUp();
+                        }else{
+                            $(_self).find('dd').slideDown();
+                        }
+                        lastStatus=!lastStatus;
+                        return null;
+                    }
+                    lastIndex = index;
+                    lastStatus=true;
+                    $(_self).siblings('dl').find('dd').slideUp();
+                    $(_self).find('dd').slideDown();
+            	});
+                $('#sidebar dl dd li').click(function(){
+                    $('#sidebar dl dd li').removeClass("select");
+                    $(this).addClass("select");
+                });
+            });
+        </script>
+    </body>
+</html>
