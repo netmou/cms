@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
     <head>
         <meta charset="UTF-8">
         {{HTML::style('static/css/common.css')}}
@@ -7,56 +7,58 @@
         {{HTML::script('static/js/jquery-1.11.0.min.js')}}
     </head>
     <body>
+        <div id="options">
+            <ul class="rnk">
+                <li>基本信息</li>
+            </ul>
+        </div>
         <div class="sheet">
             <div class="cpt">服务器信息</div>
-            <table>
+            <table class="list">
                 <tr>
-                    <th>订单号</th>
-                    <th>单价</th>
-                    <th>日期</th>
-                    <th>数目</th>
-                    <th>金额</th>
-                    <th>状态</th>
+                    <td>操作系统</td>
+                    <td>{{php_uname("s")}}</td>
+                    <td>系统用户</td>
+                    <td>{{Get_Current_User()}}</td>
+                    <td>PHP版本</td>
+                    <td>{{PHP_VERSION}}</td>
                 </tr>
                 <tr>
-                    <td>1212110833</td>
-                    <td>$25.2</td>
-                    <td>1990/01/07</td>
-                    <td>500,000</td>
-                    <td>$1，010，000</td>
-                    <td>入库</td>
+                    <td>系统域名</td>
+                    <td>{{$_SERVER["HTTP_HOST"]}}</td>
+                    <td>服务引擎</td>
+                    <td>{{ $_SERVER["SERVER_SOFTWARE"]}}</td>
+                    <td>系统目录</td>
+                    <td>{{$_SERVER["DOCUMENT_ROOT"]}}</td>
                 </tr>
                 <tr>
-                    <td>1212110833</td>
-                    <td>$25.2</td>
-                    <td>1990/01/07</td>
-                    <td>500,000</td>
-                    <td>$1，010，000</td>
-                    <td>入库</td>
+                    <td>已用内存</td>
+                    <td>{{round(memory_get_peak_usage()/1024/1024,2)}}M</td>
+                    <td>内存限制</td>
+                    <td>{{ini_get("memory_limit")}}</td>
+                    <td>上传限制</td>
+                    <td>{{ini_get("upload_max_filesize")}}</td>
                 </tr>
                 <tr>
-                    <td>1212110833</td>
-                    <td>$25.2</td>
-                    <td>2014/10/31</td>
-                    <td>600,000</td>
-                    <td>$1，512，000</td>
-                    <td>入库</td>
+                    <td>响应时间限制</td>
+                    <td>{{ini_get("max_execution_time")}}s</td>
+                    <td>服务器时间</td>
+                    <td>{{date("Y-m-d H:i:s")}}</td>
+                    <td>数据库</td>
+                    <td>{{Config::get('database.default');}}</td>
                 </tr>
+            </table>
+        </div>
+        <div class="sheet">
+            <div class="cpt">系统信息</div>
+            <table class="list">
                 <tr>
-                    <td colspan="6" class="operate">
-                        <div class="inb lft">
-                            全选 批量 删除
-                        </div>
-                        <div class="inb rgt">
-                            <a href="#" class='btn'>首页</a>
-                            <a href="#" class='btn'>上一页</a>
-                            <a href="#" class='btn'>2</a>
-                            <a href="#" class='btn'>3</a>
-                            <a href="#" class='btn'>4</a>
-                            <a href="#" class='btn'>下一页</a>
-                            <a href="#" class='btn'>尾页</a>
-                        </div>
-                    </td>
+                    <td>系统创建时间</td>
+                    <td>2014/07/24</td>
+                    <td>开发者</td>
+                    <td>leiyanfo@sina.com</td>
+                    <td>电话</td>
+                    <td>13409031790</td>
                 </tr>
             </table>
         </div>

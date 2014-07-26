@@ -20,7 +20,7 @@ class CreateCategoryTable extends Migration {
 	        $table->integer('index')->default('0');
 			$table->string('type',8)->nullable();
 			$table->string('url',8)->nullable();
-	        $table->string('display',8)->default('normal');
+	        $table->string('show',8)->default('normal');
 		});
 	}
 

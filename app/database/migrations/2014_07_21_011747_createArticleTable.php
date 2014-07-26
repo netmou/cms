@@ -14,7 +14,7 @@ class CreateArticleTable extends Migration {
 	{
 		Schema::create('article',function($table){
 	        $table->increments('id');
-			$table->integer('category');
+			$table->integer('category')->default(0);
 	        $table->string('title',64);
 	        $table->text('content');
 			$table->string('keywords',128)->nullable();
