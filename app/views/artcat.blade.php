@@ -16,13 +16,13 @@
             <div class="cpt">添加文章分类</div>
             <table class="list">
                 <tr>
-                    <th>上级</th>
-                    <th>名称</th>
-                    <th>标示</th>
-                    <th>类型</th>
-                    <th>序号</th>
-                    <th>链接</th>
-                    <th>显示</th>
+                    <th>上级栏目</th>
+                    <th>栏目名称</th>
+                    <th>栏目标示</th>
+                    <th>栏目类型</th>
+                    <th>栏目序号</th>
+                    <th>栏目链接</th>
+                    <th>显示类别</th>
                     <th>操作</th>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                             </select>
                         </td>
                         <td><input name="index" type="text" value="0" size="2"></td>
-                        <td><input name="url" type="text" size="24"></td>
+                        <td><input name="url" type="text" size="36"></td>
                         <td>
                             <select name="show">
                                 <option value="forbid">禁用</option>
@@ -66,40 +66,45 @@
             <table class="list">
                 <tr>
                     <th><input type="checkbox">全选</th>
-                    <th>ID</th>
-                    <th>上级ID</th>
-                    <th>名称</th>
-                    <th>类型</th>
-                    <th>序号</th>
-                    <th>链接</th>
-                    <th>显示</th>
+                    <th>栏目ID</th>
+                    <th>上级栏目</th>
+                    <th>栏目名称</th>
+                    <th>栏目标示</th>
+                    <th>栏目类型</th>
+                    <th>栏目序号</th>
+                    <th>栏目链接</th>
+                    <th>显示类别</th>
                     <th>操作</th>
                 </tr>
                 @foreach($cats as $cat)
                 <tr>
-                    <th><input type="checkbox"></th>
+                    <td><input type="checkbox"></td>
                     <td>{{$cat->id}}</td>
                     <td>{{$cat->parent}}</td>
                     <td>{{$cat->title}}</td>
+                    <td>{{$cat->symbol}}</td>
                     <td>{{$cat->type}}</td>
                     <td>{{$cat->index}}</td>
                     <td>{{$cat->url}}</td>
                     <td>{{$cat->show}}</td>
                     <td>
-                        <a class="btn orange" href="#">修改</a>
                         <a class="btn red" href="#">删除</a>
+                        <a class="btn orange" href="#">修改</a>
+                        <a class="btn green" href="#">添加子栏目</a>
+                        <a class="btn cyan" href="#">添加文档</a>
+                        <a class="btn cyan" href="#">管理文档</a>
                     </td>
                 </tr>
                 @endforeach
                 <tr>
                 <tr>
-                    <td colspan="9" class="operate">
+                    <td colspan="10" class="operate">
                         <div class="inb lft">
                             全选 批量 删除
                         </div>
                         <div class="inb rgt">
                             <a href="{{$cats->getUrl(1)}}" class='btn'>首页</a>
-                            <a href="{{$cats->getUrl($cur-1)}}" class='btn'>&lt;</a>
+                            <a href="{{$cats->getUrl(max($cur-1,1))}}" class='btn'>&lt;</a>
                             @for($i=$min;$i<$cur;$i++)
                             <a href="{{$cats->getUrl($i)}}" class='btn'>{{$i}}</a>
                             @endfor
@@ -107,8 +112,8 @@
                             @for($i=$cur+1;$i<=$max;$i++)
                             <a href="{{$cats->getUrl($i)}}" class='btn'>{{$i}}</a>
                             @endfor
-                            <a href="{{$cats->getUrl($cur+1)}}" class='btn'>&gt;</a>
-                            <a href="{{$cats->getUrl($cats->getLastPage())}}" class='btn'>尾页</a>
+                            <a href="{{$cats->getUrl(min($cur+1,$last))}}" class='btn'>&gt;</a>
+                            <a href="{{$cats->getUrl($last)}}" class='btn'>尾页</a>
                         </div>
                     </td>
                 </tr>

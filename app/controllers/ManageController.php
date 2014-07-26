@@ -25,7 +25,7 @@ class ManageController extends Controller {
 		$last=$cats->getLastPage();
 		$min=max(1,$cur-2);
 		$max=min($last,$cur+2);
-		return View::make('artcat',array('cats'=>$cats,'min'=>$min,'max'=>$max,'cur'=>$cur));
+		return View::make('artcat',array('cats'=>$cats,'min'=>$min,'max'=>$max,'cur'=>$cur,'last'=>$last));
 	}
 	public function postArtcat(){
 		if (1== Request::input('addcat', 0)){
